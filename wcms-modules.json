@@ -1,0 +1,13 @@
+{
+    "version": 1,
+    "themes": {
+        "alpha": {
+            "name": "Alpha",
+            "repo": "https://github.com/HiTman77/alpha/tree/master",
+            "zip": "https://github.com/HiTman77/alpha/archive/master.zip",
+            "summary": "Alpha",
+            "version": "1.0.1",
+            "image": "https://github.com/HiTman77/alpha/master/preview.jpg"
+        }
+    }
+}
