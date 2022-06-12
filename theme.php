@@ -20,18 +20,6 @@ if($Wcms->currentPage == $Wcms->get('config', 'login')) {
 	$readMore = isset($Wcms->get('pages', $Wcms->currentPage)->readMoreText) ? $Wcms->get('pages', $Wcms->currentPage)->readMoreText : "Read more";
 }
 ?>
-
-<?php
-function generateRandomString($length = 10) {
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $charactersLength = strlen($characters);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[rand(0, $charactersLength - 1)];
-    }
-    return $randomString;
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,18 +34,17 @@ function generateRandomString($length = 10) {
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400&display=swap" rel="stylesheet">
 <?= $Wcms->css() ?>
  
-<link rel="stylesheet" href="<?= $Wcms->asset('css/style.css') ?>?<?php echo generateRandomString(); ?>">
+<link rel="stylesheet" href="<?= $Wcms->asset('css/style.css') ?>?v10">
 
-<?php /* Translate php to some javascript variables and css rules. Please don't replicate this. */ ?>
 <script>var page=<?=json_encode($Wcms->currentPage)?>,heading=<?=json_encode($heading)?>,subtitle=<?=json_encode($subtitle)?>,image=<?=json_encode($page_image)?>,height=<?=json_encode($height)?>,type=<?=json_encode($type)?>,loggedIn=<?=json_encode($Wcms->loggedIn)?>;</script>
 <style>.parallax{height:<?=htmlentities($height)?>vh;}</style>
 </head>
 <body>
-		<?= $Wcms->settings() ?>
-		<?= $Wcms->alerts() ?>
+<?= $Wcms->settings() ?>
+<?= $Wcms->alerts() ?>
 <nav class="navbar navbar-default<?php if($height == 0)echo " background"; if(!$Wcms->loggedIn && $height == 0)echo " sticky no-animation"; ?>">
-		<div class="container">
-			<div class="navbar-header">
+<div class="container">
+<div class="navbar-header">
 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 <span class="sr-only">Toggle navigation</span>
 <span class="icon-bar"></span>
@@ -65,77 +52,50 @@ function generateRandomString($length = 10) {
 <span class="icon-bar"></span>
 </button>
 <a class="navbar-brand" href="<?=$Wcms->url()?>" title="<?=$Wcms->page('title')?> on <?=$Wcms->get('config','siteTitle')?>"><img src="/data/files/logo.png" alt="<?=$Wcms->page('title')?>"></a>
-			</div>
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	  			<ul class="nav navbar-nav navbar-right">
-					<?=$Wcms->menu()?>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<?php if($height != 0): ?>
-	<header class="parallax-wrapper">
-		<div class="parallax" style='background-image: url(<?=json_encode($page_image)?>);'>
-			<div class="inner">
-		<h1><?= $heading ?></h1>
- 		<h3><?=$Wcms->page('description')?></h3>
-  		<h2><?=$Wcms->page('keywords')?></h2>
-		<?= $Wcms->loggedIn ? $subtitle : "<p>$subtitle</p>" ?>
-			</div>
-
-<div class="rolly"><?php if($readMore): ?><a href="#content" class="scrolly"><?=$readMore?></div><br>
-</a>
-  	
-			<?php endif; ?>
-
-
-		</div>
- 	
-  
-  
-
-  
-  
-	</header>
-
-	<?php endif; ?>
-
-	<?php if($Wcms->currentPage != $Wcms->get('config', 'login')): ?>
-	<div class="container" id="content">
-		<div class="row">
-			<div class="col-lg-12 text-center padding40">
-				<?=$Wcms->page('content')?>
-			</div>
-		</div>
-	</div>
-	<div class="container-fluid CTA">
-			<div class="text-center padding40">
-				<?=$Wcms->block('subside')?>
-			</div>
-	</div>
-	<?php else: ?>
-	<style>.parallax .scrolly { display: none }</style>
-	<?php endif; ?>
-	<footer class="container-fluid">
-		<div class="text-center padding20">
-			<br><br>
-			<?=$Wcms->footer()?>
-			<br><br><br>
-		</div>
-	</footer>
-	<?php
+</div>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav navbar-right"><?=$Wcms->menu()?></ul>
+</div></div></nav>
+<?php if($height != 0): ?>
+<header class="parallax-wrapper">
+<div class="parallax" style='background-image: url(<?=json_encode($page_image)?>);'>
+<div class="inner">
+<h1><?= $heading ?></h1>
+<h3><?=$Wcms->page('description')?></h3>
+<h2><?=$Wcms->page('keywords')?></h2>
+<?= $Wcms->loggedIn ? $subtitle : "<p>$subtitle</p>" ?>
+</div>
+<div class="rolly"><?php if($readMore): ?><a href="#content" class="scrolly"><?=$readMore?></a></div><br>
+<?php endif; ?>
+</div>
+</header>
+<?php endif; ?>
+<?php if($Wcms->currentPage != $Wcms->get('config', 'login')): ?>
+<div class="container" id="content"><div class="row"><div class="col-lg-12 text-center padding40">
+<?=$Wcms->page('content')?>
+</div></div></div>
+<div class="container-fluid CTA">
+<div class="text-center padding40">
+<?=$Wcms->block('subside')?>
+</div></div>
+<?php else: ?>
+<style>.parallax .scrolly { display: none }</style>
+<?php endif; ?>
+<footer class="container-fluid"><div class="text-center padding20">
+<br><br>
+<?=$Wcms->footer()?>
+<br><br><br>
+</div>
+</footer>
+<?php
 		if(!$Wcms->loggedIn) {
 			echo "<script src='https://code.jquery.com/jquery-1.12.4.min.js' integrity='sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ' crossorigin='anonymous'></script>";
 		}
-	?>
-	
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
-	<?=$Wcms->js()?>
-
-	<script src="<?=$Wcms->asset('js/script.js')?>"></script>
-
-	<?php /* Add some overwrites for pages with different parallax types. */ ?>
-	<?php if($type == "scroll") echo "<style>.parallax{background-attachment:fixed;}</style>"; ?>
-	<?php if($height == 100) echo "<style>.parallax{padding-top:0;}</style>"; ?>
+?>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<?=$Wcms->js()?>
+<script src="<?=$Wcms->asset('js/script.js')?>"></script>
+<?php if($type == "scroll") echo "<style>.parallax{background-attachment:fixed;}</style>"; ?>
+<?php if($height == 100) echo "<style>.parallax{padding-top:0;}</style>"; ?>
 </body>
 </html>
