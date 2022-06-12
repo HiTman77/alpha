@@ -3,11 +3,12 @@
     "themes": {
         "alpha": {
             "name": "Alpha",
-            "repo": "https://github.com/HiTman77/alpha/tree/master",
-            "zip": "https://github.com/HiTman77/alpha/archive/master.zip",
+            "repo": "https://github.com/HiTman77/alpha/",
+            "zip": "https://github.com/HiTman77/alpha/archive/refs/heads/main.zip",
             "summary": "Alpha",
             "version": "1.0.1",
-            "image": "https://github.com/HiTman77/alpha/master/preview.jpg"
+            "image": "https://raw.githubusercontent.com/HiTman77/alpha/main/preview.jpg"
         }
     }
 }
+
