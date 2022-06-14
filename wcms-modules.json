@@ -1,12 +1,12 @@
 {
-    "version": 2,
+    "version": 1,
     "themes": {
         "alpha": {
             "name": "Alpha",
             "repo": "https://github.com/HiTman77/alpha/",
             "zip": "https://github.com/HiTman77/alpha/archive/refs/heads/main.zip",
-            "summary": "Alpha",
-            "version": "2.0.1",
+            "summary": "Alpha Doug",
+            "version": "2.0.3",
             "image": "https://raw.githubusercontent.com/HiTman77/alpha/main/preview.jpg"
         }
     }
