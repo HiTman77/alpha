@@ -56,7 +56,7 @@ button.navbar-toggle:not(.collapsed) .icon-bar:nth-child(1){transform:rotate(-45
 .parallax{position:relative;display:flex;flex-direction:column;justify-content:center;height:100vh;min-height:37em;max-height:100vh;padding-top:5em;text-align:center;background-position:center;background-size:cover;text-shadow:0 0 1em #000}
 .parallax .inner{display:inline-block;margin:auto;padding:6em;background:rgba(0,0,0,0.6);z-index:1;max-width:75%;border-radius:20px}
 .parallax .inner h1,.parallax .inner p,.parallax .inner .note-editable,.parallax .inner .editText{margin:0;color:#fff}
-.parallax .inner h1{text-transform:uppercase;font-size:3em;font-weight:300;line-height:2;font-size:3vw}
+.parallax .inner h1{text-transform:uppercase;font-size:3em;font-weight:300;line-height:2;font-size:2.3vw}
 .parallax .inner h1:after,{display:block;width:150px;height:2px;margin:.2em auto .7em;content:"";background:#fff}
 .parallax .inner h2{font-size:1em;font-weight:200;line-height:2;color:#fff}
 .parallax .inner p,.parallax .inner .note-editable{font-size:1.2em;line-height:2}
