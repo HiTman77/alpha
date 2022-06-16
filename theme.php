@@ -34,7 +34,7 @@ if($Wcms->currentPage == $Wcms->get('config', 'login')) {
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400&display=swap" rel="stylesheet">
 <?= $Wcms->css() ?>
  
-<link rel="stylesheet" href="<?= $Wcms->asset('css/style.css') ?>?v10">
+<link rel="stylesheet" href="<?= $Wcms->asset('css/style.css') ?>?v11">
 
 <script>var page=<?=json_encode($Wcms->currentPage)?>,heading=<?=json_encode($heading)?>,subtitle=<?=json_encode($subtitle)?>,image=<?=json_encode($page_image)?>,height=<?=json_encode($height)?>,type=<?=json_encode($type)?>,loggedIn=<?=json_encode($Wcms->loggedIn)?>;</script>
 <style>.parallax{height:<?=htmlentities($height)?>vh;}</style>
