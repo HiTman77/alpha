@@ -71,17 +71,17 @@ if($Wcms->currentPage == $Wcms->get('config', 'login')) {
 </header>
 <?php endif; ?>
 <?php if($Wcms->currentPage != $Wcms->get('config', 'login')): ?>
-<div class="container" id="content"><div class="row"><div class="col-lg-12 text-center padding40">
+<div class="container" id="content"><div class="row"><div class="col-lg-12 text-left padding40">
 <?=$Wcms->page('content')?>
 </div></div></div>
 <div class="container-fluid CTA">
-<div class="text-center padding40">
+<div class="text-left padding40">
 <?=$Wcms->block('subside')?>
 </div></div>
 <?php else: ?>
 <style>.parallax .scrolly { display: none }</style>
 <?php endif; ?>
-<footer class="container-fluid"><div class="text-center padding20">
+<footer class="container-fluid"><div class="text-left padding20">
 <br><br>
 <?=$Wcms->footer()?>
 <br><br><br>
